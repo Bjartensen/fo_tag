@@ -10,7 +10,9 @@ https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validat
 """
 
 def cross_validation(k=10, iterations=5):
-	k_parts = split_list(random.shuffle(corpus_prep.getSentences()),k)
+	corpus = corpus_prep.getSentences()
+	random.shuffle(corpus)
+	k_parts = split_list(corpus,k)
 	k_minus_1_parts = []
 	k_acc = []
 	accuracy = 0

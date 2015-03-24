@@ -92,7 +92,7 @@ class FaroeseTagger:
 		for i, word in enumerate(tokens):
 			tag = self.tagdict.get(word)
 			if not tag:
-				features = features_fo.features(i, word, context, prev, prev2)
+				features = features_fo.features(i+len(self.START), word, context, prev, prev2)
 				tag = self.predict(features)
 			tagged.append((word, tag))
 			prev2 = prev
@@ -120,7 +120,7 @@ class FaroeseTagger:
 					guess = self.tagdict.get(word)
 
 					if not guess:
-						feats = features_fo.features(i, word, context, prev, prev2)
+						feats = features_fo.features(i+len(self.START), word, context, prev, prev2)
 						guess = self.predict(feats)
 						self.update(tags[i], guess, feats)
 

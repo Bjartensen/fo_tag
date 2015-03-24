@@ -1,4 +1,5 @@
 # -*- coding: iso-8859-1 -*-
+from collections import defaultdict
 
 """
 Should be tuned to the Faroese language.
@@ -11,7 +12,7 @@ def features(i, word, context, prev, prev2):
 	def add(name, *args):
 		features[' '.join((name,) + tuple(args))] += 1
 	
-	i += len(self.START)
+	#i += len(self.START)
 	features = defaultdict(int)
 
 	add('bias')
